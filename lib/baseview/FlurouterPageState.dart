@@ -3,7 +3,7 @@ import 'package:flurouter/router/RouterData.dart';
 import 'package:flurouter/router/RouterManager.dart';
 import 'package:flutter/material.dart';
 
-class BasePageState<T extends StatefulWidget> extends State<T> with OnRouterResult {
+class FlurouterPageState<T extends StatefulWidget> extends State<T> with OnRouterResult {
 
   RouterData arguments;
   RouterData backData;

@@ -3,7 +3,7 @@ import 'package:flurouter/router/RouterData.dart';
 import 'package:flurouter/router/RouterManager.dart';
 import 'package:flutter/material.dart';
 
-class BaseStatelessWidget extends StatelessWidget with OnRouterResult {
+class FlurouterStatelessWidget extends StatelessWidget with OnRouterResult {
 
   static const String TAG = "BaseStatelessWidget";
   RouterData arguments;

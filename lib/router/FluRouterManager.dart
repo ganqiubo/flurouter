@@ -1,16 +1,16 @@
 import 'package:flurouter/router/OnRouterResult.dart';
-import 'package:flurouter/router/RouterData.dart';
+import 'package:flurouter/router/FluRouterData.dart';
 import 'package:flutter/material.dart';
 
-class RouterManager{
+class FluRouterManager{
   static final String TAG = "RouterManager";
   static Map<String, WidgetBuilder> routers;
 
   static init(Map routes){
-    RouterManager.routers = routes;
+    FluRouterManager.routers = routes;
   }
 
-  static pushWithData(BuildContext context,String path, RouterData arguments, OnRouterResult onResult){
+  static pushWithData(BuildContext context,String path, FluRouterData arguments, OnRouterResult onResult){
     if(routers == null || path==null || routers[path]==null){
       print(TAG + ", the path is not exit");
       return;
@@ -44,14 +44,14 @@ class RouterManager{
       print(TAG + ", the path is not exit");
       return;
     }
-    Navigator.of(context).pushNamed(path, arguments: new RouterData.fromRouterData(tempResultCode, argumentData)).then((data){
+    Navigator.of(context).pushNamed(path, arguments: new FluRouterData.fromRouterData(tempResultCode, argumentData)).then((data){
       if(onResult != null){
         onResult.onPageResult(data);
       }
     });
   }
 
-  static pop(BuildContext context, {RouterData result}){
+  static pop(BuildContext context, {FluRouterData result}){
     Navigator.of(context).pop(result);
   }
 

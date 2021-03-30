@@ -1,7 +1,7 @@
 library flurouter;
 
 export 'router/OnRouterResult.dart';
-export 'router/RouterData.dart';
-export 'router/RouterManager.dart';
+export 'router/FluRouterData.dart';
+export 'router/FluRouterManager.dart';
 export 'baseview/FlurouterPageState.dart';
 export 'baseview/FlurouterStatelessWidget.dart';

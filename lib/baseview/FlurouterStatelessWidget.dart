@@ -1,13 +1,13 @@
 import 'package:flurouter/router/OnRouterResult.dart';
-import 'package:flurouter/router/RouterData.dart';
-import 'package:flurouter/router/RouterManager.dart';
+import 'package:flurouter/router/FluRouterData.dart';
+import 'package:flurouter/router/FluRouterManager.dart';
 import 'package:flutter/material.dart';
 
 class FlurouterStatelessWidget extends StatelessWidget with OnRouterResult {
 
   static const String TAG = "BaseStatelessWidget";
-  RouterData arguments;
-  RouterData backData;
+  FluRouterData arguments;
+  FluRouterData backData;
   Map<String, Object> params;
   BuildContext context;
 
@@ -18,22 +18,22 @@ class FlurouterStatelessWidget extends StatelessWidget with OnRouterResult {
       return;
     }
     if(ModalRoute.of(context)==null || ModalRoute.of(context).settings==null){
-      arguments = new RouterData();
+      arguments = new FluRouterData();
     }else{
       arguments = ModalRoute.of(context).settings.arguments;
     }
-    if(arguments == null || !(arguments is RouterData)){
-      arguments = new RouterData();
+    if(arguments == null || !(arguments is FluRouterData)){
+      arguments = new FluRouterData();
     }
     if(arguments.params==null || !(arguments.params is Map)){
       arguments.params = new Map<String, Object>();
     }
     params = arguments.params;
-    backData = new RouterData();
+    backData = new FluRouterData();
   }
 
   @override
-  onPageResult(RouterData data) {
+  onPageResult(FluRouterData data) {
   }
 
   @override
@@ -45,22 +45,22 @@ class FlurouterStatelessWidget extends StatelessWidget with OnRouterResult {
       print(TAG + ", " + "context is null, need to super.initBuild()");
       return;
     }
-    RouterManager.push(context, path, this, resultCode: resultCode);
+    FluRouterManager.push(context, path, this, resultCode: resultCode);
   }
 
-  pushWithData(String path, RouterData arguments){
+  pushWithData(String path, FluRouterData arguments){
     if(context==null){
       print(TAG + ", " + "context is null, need to super.initBuild()");
       return;
     }
-    RouterManager.pushWithData(context, path, arguments, this);
+    FluRouterManager.pushWithData(context, path, arguments, this);
   }
 
-  pop({RouterData result}){
+  pop({FluRouterData result}){
     if(context==null){
       print(TAG + ", " + "context is null, need to super.initBuild()");
       return;
     }
-    RouterManager.pop(context, result: result);
+    FluRouterManager.pop(context, result: result);
   }
 }
